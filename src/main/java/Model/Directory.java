@@ -15,8 +15,8 @@ public class Directory {
     public Directory(String path) throws NoFilesFoundException, NoMkvException {
         this.path = path;
         this.files = Arrays.asList(new File(this.path).listFiles());
-        if (this.files.size() < 2) {
-            // there's always .DS_Store...
+        if (this.files.size() < 1) {
+            // there's always .DS_Store on mac, so this is kind of obsolete...
             throw new NoFilesFoundException();
         }
         this.movieTitle = setTitle();
